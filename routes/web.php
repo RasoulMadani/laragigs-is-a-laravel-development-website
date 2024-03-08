@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,9 @@ Route::get('/', function () {
 
 Route::get('/search',function(Request $request){
     return $request->allah;
+});
+Route::get('/listings',function(Request $request){
+    $listings = Listing::all();
+    
+    return view('listings',["listings"=>$listings]);
 });
